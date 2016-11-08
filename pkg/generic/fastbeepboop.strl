@@ -1,0 +1,16 @@
+#ifndef __FASTBEEPBOOP_STRL__
+#define __FASTBEEPBOOP_STRL__
+#include "beepboop.strl"
+
+module FASTBEEPBOOP:
+    input ms;
+    procedure Log()(string);
+    run BEEPBOOP [ constant 500 / BEEP_DELAY, 500 / BOOP_DELAY, 
+                        "beep " / BEEP_DISPLAY, "boop " / BOOP_DISPLAY, "pop! " / BANG_DISPLAY];
+end module
+
+
+#endif
+
+
+

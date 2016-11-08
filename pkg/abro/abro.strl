@@ -1,0 +1,14 @@
+module ABRO:
+constant SOME_STRING : string;
+procedure print_hello(string)();
+input A, B, R;
+output O;
+
+loop
+  [ await A || await B ];
+  emit O;
+  call print_hello(SOME_STRING)();
+  halt
+each R
+
+end module

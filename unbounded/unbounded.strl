@@ -1,0 +1,14 @@
+module Unbounded:
+input A, B;
+output O;
+relation A # B;
+loop % this presents an instantaneous loop
+    present A then
+        pause;
+        emit O;
+    end
+end
+% I didnt expect this to compile based on the primer and notes from ceu, but it does. The statemachine just does
+% a noop, so I'm not sure
+
+end module

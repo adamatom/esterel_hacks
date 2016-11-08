@@ -1,0 +1,12 @@
+#ifndef __SLOWBEEPBOOP_STRL__
+#define __SLOWBEEPBOOP_STRL__
+#include "beepboop.strl"
+
+module SLOWBEEPBOOP:
+    input ms;
+    procedure Log()(string);
+    run BEEPBOOP [ constant 2000 / BEEP_DELAY, 5000 / BOOP_DELAY, 
+                        "BEEP " / BEEP_DISPLAY, "BOOP " / BOOP_DISPLAY, "BANG!!! " / BANG_DISPLAY];
+end module
+
+#endif

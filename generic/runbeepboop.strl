@@ -1,0 +1,18 @@
+#ifndef __RUNBEEPBOOP_STRL__
+#define __RUNBEEPBOOP_STRL__
+#include "slowbeepboop.strl"
+#include "fastbeepboop.strl"
+#include "normalbeepboop.strl"
+
+module RUNBEEPBOOP:
+    input ms;
+    procedure Log()(string);
+    run SLOWBEEPBOOP
+    ||
+    run FASTBEEPBOOP
+    ||
+    run NORMALBEEPBOOP
+
+end module
+
+#endif

@@ -1,0 +1,13 @@
+No preprocessor. Added stage to cec to run source through cpp, #include is too useful. Add pre offset, add cpp command, add Run. Input $1, output to prefile, next stage takes prefile instead of $1, outputs astfile.
+Preprocessor doesn't like "'" in comments. Fix: Use c style comments, preprocessor will strip them
+Signals are namespaced to a module. Will need an outer function that knows about all modules interested if we want signals to be shared
+Modules can run (use) other moduldes, but there must be only one top level module. "Linking" is done in the host language.
+Output is an incomplete kernel of code that needs to be finished in the host language.
+Odd string size is added and then strlen is used without checking lengths. Big opportunity for buffer overrun. Fix compiler to either dynamically calculate the largest string used, or use strnlen?
+"warning: deprecated conversion from string constant to ‘string {aka char*}’ [-Wwrite-strings]", incorrect constness on strings. fix: emit const strings
+
+Minimal data processing capabilities. Seems like enough though. Variables cant be written to from two different trails.
+Generic is available through a macro system. I think any of the kernel directives can be rewired. This is the analog to organisms. Organisms are also concerned with data 
+
+
+

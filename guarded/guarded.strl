@@ -1,0 +1,20 @@
+module GUARDED:
+constant BUBBLE_ERR : string;
+procedure LOG(string)();
+input Bubble, CupBottom;
+output STOP_Z : integer, ABORT_Z, STEP_Z;
+sensor zpos : integer;
+relation Bubble # CupBottom;
+
+abort
+    await CupBottom;
+    emit STOP_Z(?zpos)
+||
+    abort
+        sustain STEP_Z
+    when CupBottom
+when 3 Bubble do
+    emit ABORT_Z;
+    call LOG(BUBBLE_ERR)()
+end
+end module

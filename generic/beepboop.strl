@@ -1,0 +1,22 @@
+#ifndef __BEEPBOOP_STRL__
+#define __BEEPBOOP_STRL__
+module BEEPBOOP:
+    constant BEEP_DELAY : integer;
+    constant BOOP_DELAY : integer;
+    constant BEEP_DISPLAY : string;
+    constant BOOP_DISPLAY : string;
+    constant BANG_DISPLAY : string;
+
+    input ms;
+
+    // output PRINT : string;
+    // Cant emit more than one thing (string in above case) at the same instant, even from par's. True in Ceu as well
+    procedure Log()(string);
+
+    every BEEP_DELAY ms do call Log()(BEEP_DISPLAY); end
+    ||
+    every BOOP_DELAY ms do call Log()(BOOP_DISPLAY); end
+    ||
+    every BOOP_DELAY+BEEP_DELAY ms do call Log()(BANG_DISPLAY); end
+end module
+#endif

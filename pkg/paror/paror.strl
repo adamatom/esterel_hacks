@@ -1,0 +1,40 @@
+module PAROR:
+input A, B, Second;
+relation A # B;
+procedure Log()(string);
+
+[ abort
+    await A;
+    call Log()("A wins!");
+when B
+||
+abort
+    await B;
+    call Log()(" A wins!");
+when A
+||
+abort
+    every 1 Second do
+        call Log()(".");
+    end
+when [A or B]];
+call Log()("press enter to exit.\n");
+%{
+trap X in
+    await A;
+    call Log()("A wins!");
+    pause;
+    exit X;
+||
+    await B;
+    call Log()("B wins!");
+    pause;
+    exit X;
+||
+    every 1 Second do
+        call Log()(".");
+    end
+end trap;
+call Log()("press enter to exit.\n");
+}%
+end module

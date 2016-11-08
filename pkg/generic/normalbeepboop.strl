@@ -1,0 +1,12 @@
+#ifndef __NORMALBEEPBOOP_STRL__
+#define __NORMALBEEPBOOP_STRL__
+#include "beepboop.strl"
+
+module NORMALBEEPBOOP:
+    input ms;
+    procedure Log()(string);
+    run BEEPBOOP [ constant 1234 / BEEP_DELAY, 1010 / BOOP_DELAY, 
+                        "[bleep] " / BEEP_DISPLAY, "[bloop] " / BOOP_DISPLAY, "[BOOM]\n " / BANG_DISPLAY];
+end module
+
+#endif
